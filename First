@@ -1,0 +1,17 @@
+#!/bin/bash
+
+count=$(ls -1 brandon* | wc -l)
+
+if [ $count -eq 0 ]; then
+    first=1
+else
+        first=$(( (count + 1 ) ))
+fi
+
+last=$(( first + 24 ))
+
+while [ $first -le $last ];
+do
+    touch "brandon$first"
+    ((first++))
+done
